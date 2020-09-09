@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var ps = new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                resolve("111")
+            }, 1000);
+       })
+    /*  var rps =  ps.then(r=>{
+           console.log(r);  
+       }) .then(x=>console.log("第二次调用"+x))
+*/
+var rps =  ps.then(r=> {throw "222"}).then(x=>console.log("第一次")).catch(x=>console.log("异常")).then(x=>console.log("异常后的第一个"))
+  /*   var npromise =   rps((resolve,reject)=>{
+             resolve("222")
+       })
+      
+       npromise.then(r=>console.log(r))
+*/
+function func1(){ 
+    return 1
+}
+function func2(){ 
+    return 2
+}
+function func3(){ 
+    return 3
+}
+/*
+[func1, func2, func3].reduce((p, f) => p.then(f), Promise.resolve())
+.then(result3 => { console.log(result3); });
+*/
+Promise.resolve().then(func1).then(func2).then(func3);
+
+var arrs=[1,2,3]
+var arrfn=(...params)=>x=>params.reduce((a,b)=>console.log(a),0)
+//console.log(arrfn(arrs)());
+    </script>
+</body>
+</html>

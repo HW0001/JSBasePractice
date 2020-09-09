@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+    var Person1  = function () {
+    this.name = 'linxin' 
+}
+var Person2 = function () {
+    this.getname = function () {
+        console.log(this.name) 
+    }
+    Person1.call(this) 
+   console.log(this)
+}
+//var person = new Person2() 
+//person.getname()      
+
+function fn(){
+    console.log("fn")
+}
+
+fn.apply(this)
+
+var obj ={
+    name:"2",
+    o:{
+        name:"3",
+        f(){
+            console.log(this.name)
+        }
+    }
+}
+  //  obj.o.f()
+
+    </script>
+</body>
+
+</html>
