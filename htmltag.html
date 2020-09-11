@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            border:5px; 
+        }
+    </style>
+</head>
+<body>
+    <div id='text'></div>
+     
+    <div>
+        <div class="box"></div>
+    </div>
+    <button id='btn1'>innerHTML</button>
+    <button id='btn2'>outnerHTML</button>
+    <button id='btn3'>innerText</button>
+    <button id='btn4'>outnerText</button>
+    <button id='btn5'>createTextNode</button>
+    
+    <script>
+        var div = document.getElementById("text")
+        document.getElementById("btn1").onclick=()=>{
+             div.innerHTML='<h2>innerHTML</h2>'
+        }
+        document.getElementById("btn2").onclick=()=>{
+             div.outerHTML='<p id="text">outnerHTML</p>'
+        }
+        document.getElementById("btn3").onclick=()=>{
+            document.getElementById("text").innerText='<span>innerText</span>'
+        }
+        document.getElementById("btn4").onclick=()=>{
+            document.getElementById("text").outerText ='<span>outerText</span>'
+        }
+        document.getElementById("btn5").onclick=()=>{
+            var txtnode = document.createTextNode("<h3>文本测试</h3>")
+            document.getElementById("text").appendChild(txtnode)
+        }
+    </script>
+</body>
+</html>
