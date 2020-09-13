@@ -39,6 +39,21 @@ var obj ={
 }
   //  obj.o.f()
 
+  function Father(name) {
+        this.name = name;
+    }
+    Father.prototype.dance = function () {
+      console.log('I am dancing');
+    };
+    function Son(name, age) {
+        Father.call(this, name);
+        this.age = age;
+    }
+    let son = new Son('小红', 100);
+    console.log(son);
+    son.dance();   //报错 
+
+
     </script>
 </body>
 

@@ -16,7 +16,11 @@
            console.log(r);  
        }) .then(x=>console.log("第二次调用"+x))
 */
-var rps =  ps.then(r=> {throw "222"}).then(x=>console.log("第一次")).catch(x=>console.log("异常")).then(x=>console.log("异常后的第一个"))
+//var rps =  ps.then(r=> {throw "222"}).then(x=>console.log("第一次")).catch(x=>console.log("异常")).then(x=>console.log("异常后的第一个"))
+  var ps =  ps.then(r=> 
+  {console.log("2")
+  }) 
+  console.log(ps);
   /*   var npromise =   rps((resolve,reject)=>{
              resolve("222")
        })
@@ -36,7 +40,7 @@ function func3(){
 [func1, func2, func3].reduce((p, f) => p.then(f), Promise.resolve())
 .then(result3 => { console.log(result3); });
 */
-Promise.resolve().then(func1).then(func2).then(func3);
+//Promise.resolve().then(func1).then(func2).then(func3);
 
 var arrs=[1,2,3]
 var arrfn=(...params)=>x=>params.reduce((a,b)=>console.log(a),0)
