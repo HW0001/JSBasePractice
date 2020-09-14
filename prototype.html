@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+</head> 
 <body> 
     <script>
         class f1 {
@@ -34,5 +34,31 @@
     console.log(stars);      // Star {name: "小红", age: 18}
     console.log(stars.sex);  // undefined     实例无法访问sex属性 
     </script>
+</body> 
+
+<body>
+    <script>
+        class Person {
+            constructor(name) {
+                this.name = name
+            }
+            printName(){console.log("Person里面的方法")}
+            sharefn(){
+                console.log("我是共享的方法");
+            }
+        }
+        class Student extends Person {
+            constructor(score) {
+                super()
+                this.score = score
+            }
+            printScore(){}
+        }  
+        var obj = new Student
+       console.log(obj.sharefn())
+       console.log(obj.printName())
+
+    </script>
 </body>
+ 
 </html>

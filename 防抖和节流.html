@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>函数防抖和节流</div>
+    <hr>
+    <h2 id='num'>1</h2>
+    <button id='jl'>加一</button>
+    <hr>
+    <input type="text" id="txt">
+    <script>
+        //var canUse = true
+        var timer
+        var th = new throttle(numadd,2000)
+
+        document.getElementById("jl")
+            .onclick = function () {
+                //throttle(numadd, 2000)()
+                th()
+            }
+        document.getElementById("txt").onkeyup=function(){
+            noshake(()=>console.log(this.value),2000)()
+        }
+
+
+        function numadd() {
+            document.getElementById("num").innerText++
+        }
+
+        //节流：
+        function throttle(fn, delay) {
+            let canUse = true;
+            return function () {
+                if (canUse) {
+                    fn.apply(this, arguments)
+                    canUse = false
+                    setTimeout(() => canUse = true, delay)
+                }
+            }
+        }
+
+        //防抖
+        var timer
+        function noshake(fn, delay) {
+            return function () {
+                if (timer) clearTimeout(timer)
+                let context = this
+                timer = setTimeout(() => {
+                    fn.apply(context,arguments)
+                }, delay)
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

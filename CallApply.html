@@ -26,7 +26,7 @@ function fn(){
     console.log("fn")
 }
 
-fn.apply(this)
+//fn.apply(this)
 
 var obj ={
     name:"2",
@@ -38,7 +38,7 @@ var obj ={
     }
 }
   //  obj.o.f()
-
+ 
   function Father(name) {
         this.name = name;
     }
@@ -52,7 +52,14 @@ var obj ={
     let son = new Son('小红', 100);
     console.log(son);
     son.dance();   //报错 
-
+ 
+    function Fobj(name,age){
+        this.name=name
+        this.age=age
+    }
+    Fobj.fn=function(){}
+    var obj = new Fobj("zs",12)
+    console.log(obj); 
 
     </script>
 </body>
