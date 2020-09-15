@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //
+        function F1(){
+            this.prop1="1",
+            this.prop2="2"
+        }
+        F1.prototype.newF2=function(){
+            //console.log(this.prop1);
+           // console.log("newF2");
+        }
+        //F1.propf1="2"
+
+        function F2(){
+            this.prop3="3"
+        }
+        F2.prototype=new F1()
+        //var obj1 = new F1()
+        var obj2 = new F2()
+       // obj1.newF2()
+       // console.log(obj1);
+        console.log(obj2);
+        //console.log(F1.prototype);
+
+    </script>
+
+</body>
+</html>
